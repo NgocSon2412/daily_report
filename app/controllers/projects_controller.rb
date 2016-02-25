@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   def index
   	@projects = Project.all
   end
+
   def create
     @project = Project.new(project_params)    # Not the final implementation!
     if @project.save
@@ -20,6 +21,21 @@ class ProjectsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @project= Project.find(params[:id])
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      flash[:success] = "Profile updated"
+      redirect_to @project
+    else
+      render 'edit'
+    end
+  end
+
   private 
 
   	def project_params

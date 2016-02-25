@@ -1,1 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+project:
+  project_name: adsadsadsadsada
+  plan_time: 100
+  real_time: 100
