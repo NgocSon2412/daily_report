@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  include ProjectsHelper
   
   def new
   	@project= Project.new
@@ -40,6 +41,13 @@ class ProjectsController < ApplicationController
     Project.find(params[:id]).destroy
     flash[:success] = "Project deleted"
     redirect_to projects_url
+  end
+
+  def report
+    token = auth(params[:code])
+    user = get_user(token)
+    #add_user(user)
+    @user_name = user["user"]
   end
 
   private 
