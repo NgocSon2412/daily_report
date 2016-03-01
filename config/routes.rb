@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   get 'management'  => 'projects#new'
   resources :projects
-  get 'report' => 'projects#report'
+  get 'report' => 'users#report'
   get 'login' => 'signin#new'
+  #post 'report' => 'users#report2'
+  patch 'report' => 'users#report2'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
